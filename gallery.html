@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería Educativa sobre Git</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .gallery-img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Git Learning</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Acerca de</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Galería</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contacto</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Gallery Section -->
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">Galería Educativa sobre Git</h1>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <img src="https://cursin.net/wp-content/uploads/2023/08/cursos-git-githb-cursin.jpg.webp" class="gallery-img" alt="Comandos Básicos de Git" data-toggle="modal" data-target="#galleryModal" data-title="Comandos Básicos de Git" data-description="Aprende los comandos básicos de Git para empezar a gestionar tus proyectos.">
+            </div>
+            <div class="col-md-4 mb-4">
+                <img src="https://www.syloper.com/wp-content/uploads/git_destacada.png" class="gallery-img" alt="Ramas en Git" data-toggle="modal" data-target="#galleryModal" data-title="Ramas en Git" data-description="Descubre cómo funcionan las ramas en Git y cómo pueden ayudarte a organizar tu trabajo.">
+            </div>
+            <div class="col-md-4 mb-4">
+                <img src="https://www.freecodecamp.org/espanol/news/content/images/2023/02/commits.png" class="gallery-img" alt="Fusionar Ramas" data-toggle="modal" data-target="#galleryModal" data-title="Fusionar Ramas" data-description="Aprende a fusionar ramas en Git para integrar cambios de manera efectiva.">
+            </div>
+            <div class="col-md-4 mb-4">
+                <img src="https://programacion.net/files/article/article_02131_.jpg" class="gallery-img" alt="Resolver Conflictos" data-toggle="modal" data-target="#galleryModal" data-title="Resolver Conflictos" data-description="Guía sobre cómo resolver conflictos al fusionar ramas en Git.">
+            </div>
+            <div class="col-md-4 mb-4">
+                <img src="https://cursin.net/wp-content/uploads/2024/05/git-github-cursos-gratuitos.jpg.webp" class="gallery-img" alt="GitHub y Repositorios Remotos" data-toggle="modal" data-target="#galleryModal" data-title="GitHub y Repositorios Remotos" data-description="Explora cómo trabajar con GitHub y otros repositorios remotos.">
+            </div>
+            <div class="col-md-4 mb-4">
+                <img src="https://i0.wp.com/xaviercarrascosa.com/wp-content/uploads/2020/06/Git_Github-tutorial_basico.jpg?ssl=1" class="gallery-img" alt="Historial de Git" data-toggle="modal" data-target="#galleryModal" data-title="Historial de Git" data-description="Conoce cómo revisar el historial de cambios en tu proyecto con Git.">
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="galleryModalTitle">Imagen</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="" id="modal-img" class="img-fluid" alt="Imagen Modal">
+                    <p id="modal-description" class="mt-3"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-dark text-white text-center py-4 mt-4">
+        <div class="container">
+            <p class="mb-1">&copy; 2024 Git Learning. Todos los derechos reservados.</p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a class="text-white" href="#">Inicio</a></li>
+                <li class="list-inline-item"><a class="text-white" href="#">Acerca de</a></li>
+                <li class="list-inline-item"><a class="text-white" href="#">Galleria</a></li>
+                <li class="list-inline-item"><a class="text-white" href="#">Contacto</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        $('#galleryModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget); // Button that triggered the modal
+            var imgSrc = button.attr('data-src'); // Extract info from data-* attributes
+            var title = button.attr('data-title');
+            var description = button.attr('data-description');
+            var modal = $(this);
+            modal.find('#modal-img').attr('src', button.attr('src'));
+            modal.find('.modal-title').text(title);
+            modal.find('#modal-description').text(description);
+        });
+    </script>
+</body>
+</html>
